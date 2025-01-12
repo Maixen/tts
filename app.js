@@ -1,10 +1,14 @@
-let modelPath = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/de/de_DE/karlsson/low/de_DE-karlsson-low.onnx";
+let modelPath = "https://drive.google.com/uc?export=download&id=11FA6PWPeAusH65IWVQhsCN_7NsYx55GS";  // Replace with your model URL
 let model;  // To store the loaded ONNX model
 
 // Load the ONNX model
 async function loadModel() {
-    model = await onnx.InferenceSession.create(modelPath);
-    console.log("ONNX model loaded successfully.");
+    try {
+        model = await onnx.InferenceSession.create(modelPath);
+        console.log("ONNX model loaded successfully.");
+    } catch (error) {
+        console.error("Error loading ONNX model:", error);
+    }
 }
 
 // Convert the text input to speech using the ONNX model

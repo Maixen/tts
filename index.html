@@ -22,6 +22,7 @@
             cursor: pointer;
         }
     </style>
+    <link rel="icon" href="data:,"> <!-- Prevent favicon error -->
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     <textarea id="inputText" placeholder="Enter the text you want to convert to speech..."></textarea><br>
     <button id="generateButton">Generate Audio</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/@onnxjs/onnx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.12.0/dist/onnxruntime-web.min.js"></script>
     <script src="app.js"></script>
 
 </body>
