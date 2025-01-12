@@ -1,15 +1,22 @@
-let modelPath = "https://drive.google.com/uc?export=download&id=11FA6PWPeAusH65IWVQhsCN_7NsYx55GS";  // Replace with your model URL
+// let modelPath = "https://drive.google.com/uc?export=download&id=11FA6PWPeAusH65IWVQhsCN_7NsYx55GS";  // Replace with your model URL
 let model;  // To store the loaded ONNX model
 
 // Load the ONNX model
+// Load the ONNX model
 async function loadModel() {
     try {
-        model = await onnx.InferenceSession.create(modelPath);
-        console.log("ONNX model loaded successfully.");
+        const modelPath = "https://drive.google.com/uc?export=download&id=11FA6PWPeAusH65IWVQhsCN_7NsYx55GS";
+        console.log("Loading model from:", modelPath);
+        
+        // Create an inference session
+        const session = await ort.InferenceSession.create(modelPath);
+        console.log("Model loaded successfully:", session);
     } catch (error) {
         console.error("Error loading ONNX model:", error);
     }
 }
+
+// Call loadModel when the page loads
 
 // Convert the text input to speech using the ONNX model
 async function textToSpeech(text) {
